@@ -166,10 +166,19 @@
  - [x] Hide buttons if not logged
  - [x] Show edit and delete button if author
  - [x] Show recommend and already recommend buttons if logged
- - [] Implement recommend functionallity
-   - [] Add recommends in product relation
-   - [] Add recommend action
-   - [] Add recommend service method
-   - [] Fix recommend link
- - [] Show dynamic recommend
+ - [x] Implement recommend functionallity
+   - [x] Add recommends in product relation
+   - [x] Add recommend action
+   - [x] Add recommend service method
+   - [x] Fix recommend link
+ - [x] Show dynamic recommend
  - [x] Show recommend button or already recommended buttons conditionally
+
+ ### Edit blog
+ - [x] Fix navigation link in details
+ - [x] Add get edit action
+ - [x] Show empty edit page
+ - [x] Populate edit form with blog data
+ - [] Add post edit action
+ - [] Add edit method in blog service
+ - [] Add error handling

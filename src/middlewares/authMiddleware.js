@@ -10,17 +10,15 @@ export function authMiddleware(req, res, next) {
 
     try {
         const decodedToken = jwt.verify(token, JWT_SECRET);
-        // Is Valid User
-        req.user = decodedToken; // We attach the user to the request so that they can travel with it and use it
+
+        req.user = decodedToken;
         req.isAuthenticated = true;
 
-        // Add To Handlebars Context - so that Handlebars views can access this information
         res.locals.isAuthenticated = true;
         res.locals.user = decodedToken;
 
         next();
     } catch (error) {
-        // Invalid User
         res.clearCookie('auth');
         res.redirect('/auth/login');
     }

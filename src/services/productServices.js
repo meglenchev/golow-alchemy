@@ -13,4 +13,7 @@ export default {
     getOne(productId) {
         return Product.findById(productId);
     },
+    recommend(productId, userId) {
+        return Product.findByIdAndUpdate(productId, { $push: { recommendList: userId } });
+    }
 }

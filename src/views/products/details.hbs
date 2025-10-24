@@ -24,19 +24,19 @@
 
     <h3>|~|~|~|~|~|~|~|~|~|~|~|~|~|~|~|</h3>
 
-    <h3>People Who Recommend: 0</h3>
+    <h3>People Who Recommend: {{recommendations}}</h3>
 </article>
 
 {{#if user}}
 <div class="command">
     {{#if isOwner}}
-        <a href="/products/{{_id}}/edit">Edit</a>
-        <a href="/products/{{_id}}/delete">Delete</a>
+        <a href="/products/{{product._id}}/edit">Edit</a>
+        <a href="/products/{{product._id}}/delete">Delete</a>
     {{else}}
         {{#if isRecommended}}
             <p>You've already recommended this product!</p>
         {{else}}
-            <a href="/products/{{_id}}/recommend">Recommend</a>
+            <a href="/products/{{product._id}}/recommend">Recommend</a>
         {{/if}}
     {{/if}}
 </div>

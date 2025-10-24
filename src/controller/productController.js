@@ -2,6 +2,7 @@ import { Router } from "express";
 import { isAuth } from "../middlewares/authMiddleware.js";
 import { getErrorMessage } from "../utils/errorUtils.js";
 import productServices from "../services/productServices.js";
+import { isProductOwner } from "../middlewares/productMiddleware.js";
 
 export const productController = Router();
 
@@ -32,7 +33,7 @@ productController.get('/', async (req, res) => {
     const products = await productServices.getAll();
 
     res.render('products/catalog', {
-        products, 
+        products,
         pageTitle: 'Product Catalog - GlowAlchemy',
     })
 });
@@ -44,17 +45,45 @@ productController.get('/:productId/details', async (req, res) => {
         const product = await productServices.getOne(productId);
 
         const isOwner = product.owner && product.owner._id.equals(req.user?.id);
-        
+
         const isRecommended = product.recommendList.some(user => user.equals(req.user?.id));
+
+        const recommendations = product.recommendList.length;
 
         res.render('products/details', {
             product,
             isOwner,
-            isRecommended, 
+            isRecommended,
+            recommendations,
             pageTitle: "Product's Details - GlowAlchemy"
         });
 
     } catch (err) {
         res.render('404', { error: 'Something went wrong!' })
     }
+});
+
+productController.get('/:productId/edit', isAuth, isProductOwner, async (req, res) => {
+    const productId = req.params.productId;
+
+    try {
+        const product = await productServices.getOne(productId);
+
+        res.render('products/edit', {
+            product, 
+            pageTitle: 'Edit Product - GlowAlchemy'
+        })
+    } catch (err) {
+         res.render('404', { error: 'Product not found!' })
+    }
+});
+
+productController.get('/:productId/recommend', isAuth, async (req, res) => {
+    const productId = req.params.productId;
+
+    const userId = req.user.id;
+
+    await productServices.recommend(productId, userId);
+
+    res.redirect(`/products/${productId}/details`);
 });
