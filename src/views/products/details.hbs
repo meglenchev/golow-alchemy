@@ -30,11 +30,14 @@
 {{#if user}}
 <div class="command">
     {{#if isOwner}}
-    <a href="/products/{{_id}}/edit">Edit</a>
-    <a href="/products/{{_id}}/delete">Delete</a>
+        <a href="/products/{{_id}}/edit">Edit</a>
+        <a href="/products/{{_id}}/delete">Delete</a>
     {{else}}
-    <a href="/products/{{_id}}/recommend">Recommend</a>
-    <p>You've already recommended this product!</p>
+        {{#if isRecommended}}
+            <p>You've already recommended this product!</p>
+        {{else}}
+            <a href="/products/{{_id}}/recommend">Recommend</a>
+        {{/if}}
     {{/if}}
 </div>
 {{/if}}

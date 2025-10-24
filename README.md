@@ -165,11 +165,11 @@
  - [x] Show dynamic details page
  - [x] Hide buttons if not logged
  - [x] Show edit and delete button if author
- - [] Show recommend and already recommend buttons if logged
+ - [x] Show recommend and already recommend buttons if logged
  - [] Implement recommend functionallity
    - [] Add recommends in product relation
    - [] Add recommend action
    - [] Add recommend service method
    - [] Fix recommend link
  - [] Show dynamic recommend
- - [] Show recommend button or already recommended buttons conditionally
+ - [x] Show recommend button or already recommended buttons conditionally

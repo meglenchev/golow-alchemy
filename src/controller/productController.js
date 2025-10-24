@@ -44,13 +44,13 @@ productController.get('/:productId/details', async (req, res) => {
         const product = await productServices.getOne(productId);
 
         const isOwner = product.owner && product.owner._id.equals(req.user?.id);
-        console.log(isOwner)
-
-        //const isDonated = animal.donations.some(donor => donor.equals(req.user?.id));
+        
+        const isRecommended = product.recommendList.some(user => user.equals(req.user?.id));
 
         res.render('products/details', {
             product,
             isOwner,
+            isRecommended, 
             pageTitle: "Product's Details - GlowAlchemy"
         });
 
