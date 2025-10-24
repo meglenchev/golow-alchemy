@@ -36,3 +36,25 @@ productController.get('/', async (req, res) => {
         pageTitle: 'Product Catalog - GlowAlchemy',
     })
 });
+
+productController.get('/:productId/details', async (req, res) => {
+    const productId = req.params.productId;
+
+    try {
+        const product = await productServices.getOne(productId);
+
+        const isOwner = product.owner && product.owner._id.equals(req.user?.id);
+        console.log(isOwner)
+
+        //const isDonated = animal.donations.some(donor => donor.equals(req.user?.id));
+
+        res.render('products/details', {
+            product,
+            isOwner,
+            pageTitle: "Product's Details - GlowAlchemy"
+        });
+
+    } catch (err) {
+        res.render('404', { error: 'Something went wrong!' })
+    }
+});

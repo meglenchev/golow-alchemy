@@ -10,4 +10,7 @@ export default {
     getAll(filter = {}) {
         return Product.find();
     },
+    getOne(productId) {
+        return Product.findById(productId);
+    },
 }
