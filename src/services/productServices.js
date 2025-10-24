@@ -7,4 +7,7 @@ export default {
             owner: userId,
         });
     },
+    getAll(filter = {}) {
+        return Product.find();
+    },
 }

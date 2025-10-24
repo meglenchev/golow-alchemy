@@ -146,3 +146,10 @@
  - [x] Create product service with create method
  - [x] Add owner on product creation
  - [x] Add error handling
+
+ ### Product Catalog Page
+ - [x] Fix navigation link
+ - [x] Add catalog view
+ - [x] Add get catalog action with static blogs
+ - [x] Get all product service
+ - [x] Show dynamic products 

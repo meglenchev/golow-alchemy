@@ -27,3 +27,12 @@ productController.post('/add-product', isAuth, async (req, res) => {
         });
     }
 });
+
+productController.get('/', async (req, res) => {
+    const products = await productServices.getAll();
+
+    res.render('products/catalog', {
+        products, 
+        pageTitle: 'Product Catalog - GlowAlchemy',
+    })
+});
