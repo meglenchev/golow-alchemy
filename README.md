@@ -133,10 +133,16 @@
  - [x] Add Search View
  - [x] Create Search Functionality
 
-### Bonus
- - [x] Export helpers into separate module
- - [x] Add env variable for debuging
- - [x] Add global error handler
- - [ ] Add bundler
- - [ ] Use async jwt
- - [ ] Refresh token
+ ### Create Product Page
+ - [x] Fix create products navigation link
+ - [x] Add product controller
+ - [x] Add controller to routes
+ - [] Add create action with render
+ - [] Add products folder in views
+ - [] Add create product view
+ - [x] Add product model
+ - [] Modify create product form
+ - [x] Create product post action
+ - [x] Create product service with create method
+ - [x] Add owner on product creation
+ - [] Add error handling
