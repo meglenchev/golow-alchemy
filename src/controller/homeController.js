@@ -1,7 +1,13 @@
 import { Router } from "express";
+import productServices from "../services/productServices.js";
 
 export const homeController = Router();
 
-homeController.get('/', (req, res) => { 
-    res.render('home', { pageTitle: 'Home Page' });
+homeController.get('/', async (req, res) => { 
+    const products = await productServices.getAll();
+
+    res.render('home', { 
+        products,
+        pageTitle: 'Home Page' 
+    });
 });
