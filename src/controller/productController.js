@@ -70,11 +70,29 @@ productController.get('/:productId/edit', isAuth, isProductOwner, async (req, re
         const product = await productServices.getOne(productId);
 
         res.render('products/edit', {
-            product, 
+            product,
             pageTitle: 'Edit Product - GlowAlchemy'
         })
     } catch (err) {
-         res.render('404', { error: 'Product not found!' })
+        res.render('404', { error: 'Product not found!' })
+    }
+});
+
+productController.post('/:productId/edit', isAuth, isProductOwner, async (req, res) => {
+    const productId = req.params.productId;
+    const productData = req.body;
+
+    try {
+        await productServices.update(productId, productData);
+
+        res.redirect(`/products/${productId}/details`);
+    } catch (err) {
+        const errorMessage = getErrorMessage(err);
+
+        res.status(400).render('products/edit', {
+            error: errorMessage,
+            product: productData,
+        });
     }
 });
 

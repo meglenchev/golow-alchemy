@@ -179,6 +179,6 @@
  - [x] Add get edit action
  - [x] Show empty edit page
  - [x] Populate edit form with blog data
- - [] Add post edit action
- - [] Add edit method in blog service
- - [] Add error handling
+ - [x] Add post edit action
+ - [x] Add edit method in blog service
+ - [x] Add error handling
