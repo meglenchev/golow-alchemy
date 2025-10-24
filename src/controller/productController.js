@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { isAuth } from "../middlewares/authMiddleware.js";
 import { getErrorMessage } from "../utils/errorUtils.js";
+import productServices from "../services/productServices.js";
 
 export const productController = Router();
 
@@ -13,7 +14,7 @@ productController.post('/add-product', isAuth, async (req, res) => {
     const userId = req.user.id;
 
     try {
-        await animalServices.addAnimal(productData, userId);
+        await productServices.addProduct(productData, userId);
 
         res.redirect('/products');
     } catch (err) {
