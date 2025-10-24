@@ -96,6 +96,14 @@ productController.post('/:productId/edit', isAuth, isProductOwner, async (req, r
     }
 });
 
+productController.get('/:productId/delete', isAuth, isProductOwner, async (req, res) => {
+    const productId = req.params.productId;
+
+    await productServices.delete(productId);
+
+    res.redirect('/products');
+});
+
 productController.get('/:productId/recommend', isAuth, async (req, res) => {
     const productId = req.params.productId;
 

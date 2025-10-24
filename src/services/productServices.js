@@ -16,6 +16,9 @@ export default {
     update(productId, productData) {
         return Product.findByIdAndUpdate(productId, productData, { runValidators: true });
     },
+    delete(productId){
+        return Product.findByIdAndDelete(productId);
+    },
     recommend(productId, userId) {
         return Product.findByIdAndUpdate(productId, { $push: { recommendList: userId } });
     }

@@ -174,11 +174,14 @@
  - [x] Show dynamic recommend
  - [x] Show recommend button or already recommended buttons conditionally
 
- ### Edit blog
- - [x] Fix navigation link in details
+ ### Edit Product
  - [x] Add get edit action
  - [x] Show empty edit page
  - [x] Populate edit form with blog data
  - [x] Add post edit action
  - [x] Add edit method in blog service
  - [x] Add error handling
+
+ ### Delete Product
+ - [x] Add delete action
+ - [x] Add delete method in blog service
