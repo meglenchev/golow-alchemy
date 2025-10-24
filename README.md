@@ -137,12 +137,12 @@
  - [x] Fix create products navigation link
  - [x] Add product controller
  - [x] Add controller to routes
- - [] Add create action with render
- - [] Add products folder in views
- - [] Add create product view
+ - [x] Add create action with render
+ - [x] Add products folder in views
+ - [x] Add create product view
  - [x] Add product model
- - [] Modify create product form
+ - [x] Modify create product form
  - [x] Create product post action
  - [x] Create product service with create method
  - [x] Add owner on product creation
- - [] Add error handling
+ - [x] Add error handling
